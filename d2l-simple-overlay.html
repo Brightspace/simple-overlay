@@ -90,14 +90,25 @@
 					value: null
 				}
 			},
+			_observer: null,
 			created: function() {
 				this._updateBackdropStyle();
 			},
 			ready: function() {
-				new MutationObserver(this.invalidateTabbables.bind(this)).observe(this, {
+				this._observer = new MutationObserver(this.invalidateTabbables.bind(this));
+				this._observer.observe(this, {
 					childList: true,
 					subtree: true
 				});
+			},
+			attached: function() {
+				this._observer.observe(this, {
+					childList: true,
+					subtree: true
+				});
+			},
+			detached: function() {
+				this._observer.disconnect();
 			},
 			get _focusableNodes() {
 				return [D2L.Dom.Focus.getFirstFocusableDescendant(this), D2L.Dom.Focus.getLastFocusableDescendant(this)];

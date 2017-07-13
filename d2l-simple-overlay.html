@@ -22,7 +22,7 @@
 			</slot>
 			<div class="scrollable">
 				<div class="max-width">
-					<slot></slot>
+					<slot id="mainContent"></slot>
 				</div>
 			</div>
 		</span>
@@ -121,7 +121,7 @@
 				return this.$$('.scrollable');
 			},
 			_notifyDistributedChildren: function(eventName) {
-				Polymer.dom(this.$$('content'))
+				Polymer.dom(this.$.mainContent)
 					.getDistributedNodes()
 					.forEach(function(childNode) {
 						this.fire(

@@ -4,7 +4,7 @@
   "scripts": {
     "postinstall": "bower install",
     "test": "npm run test:lint:js && npm run test:lint:wc && npm run test:unit:wct",
-    "test:lint:js": "eslint --ext .js,.html . test/ demo/",
+    "test:lint:js": "eslint --ext .js,.html . test/",
     "test:lint:wc": "polymer lint",
     "test:unit:wct": "cross-env LAUNCHPAD_BROWSERS=firefox wct -p"
   },

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-ca">
+	<head>
+		<title>d2l-simple-overlay demo</title>
+		<script src="https://s.brightspace.com/lib/webcomponentsjs/0.7.21/webcomponents.min.js"></script>
+		<link rel="import" href="../../d2l-demo-template/d2l-demo-template.html">
+		<link rel="import" href="../d2l-simple-overlay.html">
+	</head>
+	<body>
+		<script>
+			function openOverlay() {
+				var overlay = document.getElementById('overlay');
+				overlay.open();
+			}
+		</script>
+
+		<d2l-demo-template title="d2l-simple-overlay">
+			<div slot="d2l-demo-fixture">
+				<button onclick="openOverlay()">Open Overlay!</button>
+
+				 <d2l-simple-overlay id="overlay" title-name="Simple Overlay">
+					<p>This is the content of the simple overlay.
+					You can put any content in here.
+					Click the X to close it.</p>
+					<img src="http://lorempixel.com/400/300/"/>
+				</d2l-simple-overlay>
+			</div>
+		</d2l-demo-template>
+	</body>
+</html>

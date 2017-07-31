@@ -3,7 +3,6 @@
 <link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="../d2l-polymer-behaviors/d2l-dom.html">
 <link rel="import" href="d2l-simple-overlay-close-button.html">
-
 <link rel="import" href="d2l-simple-overlay-styles.html">
 
 <!-- This overlay supports using different animations and transitions for desktop and mobile. -->
@@ -11,18 +10,20 @@
 	<template>
 		<style include="d2l-simple-overlay-styles"></style>
 		<span role="dialog" aria-label$="[[titleName]]">
-			<slot name="header">
-				<div class="max-width container">
-					<h2 class="d2l-simple-overlay-title">{{titleName}}</h2>
-					<d2l-simple-overlay-close-button
-						aria-label$="[[closeSimpleOverlayAltText]]"
-						alt$="[[closeSimpleOverlayAltText]]">
-					</d2l-simple-overlay-close-button>
-				</div>
-			</slot>
+			<div id="headerContainer">
+				<slot name="header">
+					<div class="max-width container">
+						<h2 class="d2l-simple-overlay-title">{{titleName}}</h2>
+						<d2l-simple-overlay-close-button
+							aria-label$="[[closeSimpleOverlayAltText]]"
+							alt$="[[closeSimpleOverlayAltText]]">
+						</d2l-simple-overlay-close-button>
+					</div>
+				</slot>
+			</div>
 			<div class="scrollable">
-				<div class="max-width">
-					<slot id="mainContent"></slot>
+				<div id="contentContainer" class="max-width">
+					<slot id="mainSlot"></slot>
 				</div>
 			</div>
 		</span>
@@ -121,7 +122,7 @@
 				return this.$$('.scrollable');
 			},
 			_notifyDistributedChildren: function(eventName) {
-				Polymer.dom(this.$.mainContent)
+				Polymer.dom(this.$.mainSlot)
 					.getDistributedNodes()
 					.forEach(function(childNode) {
 						this.fire(

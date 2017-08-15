@@ -9,23 +9,21 @@
 <dom-module id="d2l-simple-overlay">
 	<template>
 		<style include="d2l-simple-overlay-styles"></style>
-		<span role="dialog" aria-label$="[[titleName]]">
-			<div id="headerContainer">
-				<slot name="header">
-					<div class="max-width container">
-						<h2 class="d2l-simple-overlay-title">{{titleName}}</h2>
-						<d2l-simple-overlay-close-button
-							aria-label$="[[closeSimpleOverlayAltText]]"
-							alt$="[[closeSimpleOverlayAltText]]"></d2l-simple-overlay-close-button>
-					</div>
-				</slot>
-			</div>
-			<div class="scrollable">
-				<div id="contentContainer" class="max-width">
-					<slot id="mainSlot"></slot>
+		<div id="headerContainer">
+			<slot name="header">
+				<div class="max-width container">
+					<h2 class="d2l-simple-overlay-title">{{titleName}}</h2>
+					<d2l-simple-overlay-close-button
+						aria-label$="[[closeSimpleOverlayAltText]]"
+						alt$="[[closeSimpleOverlayAltText]]"></d2l-simple-overlay-close-button>
 				</div>
+			</slot>
+		</div>
+		<div class="scrollable">
+			<div id="contentContainer" class="max-width">
+				<slot id="mainSlot"></slot>
 			</div>
-		</span>
+		</div>
 	</template>
 	<script>
 		'use strict';

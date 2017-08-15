@@ -25,7 +25,7 @@
   ],
   "dependencies": {
     "polymer": "^1.7.1",
-    "iron-overlay-behavior": "^1.10.2",
+    "iron-overlay-behavior": "^2.0.0",
     "d2l-icons": "^3.1.0",
     "d2l-polymer-behaviors": "^0.0.5",
     "d2l-colors": "^2.2.3",

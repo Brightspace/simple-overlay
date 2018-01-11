@@ -6,8 +6,7 @@
 	<template>
 		<style include="d2l-simple-overlay-close-button-styles"></style>
 		<button
-			aria-label$="[[closeAltText]]"
-			alt$="[[closeAltText]]"
+			aria-label$="[[closeText]]"
 			class="close-button"
 			on-tap="_onTap" >
 			<slot>
@@ -23,7 +22,7 @@
 
 			properties: {
 				// Localized text for the close button label
-				closeAltText: String
+				closeText: String
 			},
 
 			_onTap: function() {

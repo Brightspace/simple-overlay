@@ -6,6 +6,8 @@
 	<template>
 		<style include="d2l-simple-overlay-close-button-styles"></style>
 		<button
+			aria-label$="[[closeAltText]]"
+			alt$="[[closeAltText]]"
 			class="close-button"
 			on-tap="_onTap" >
 			<slot>
@@ -18,6 +20,11 @@
 
 		Polymer({
 			is: 'd2l-simple-overlay-close-button',
+
+			properties: {
+				// Localized text for the close button label
+				closeAltText: String
+			},
 
 			_onTap: function() {
 				this.dispatchEvent(new CustomEvent('d2l-simple-overlay-close-button-clicked', { bubbles: true }));

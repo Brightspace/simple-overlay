@@ -1,5 +1,3 @@
-/* global describe, it, beforeEach, fixture, expect */
-
 'use strict';
 
 describe('d2l-simple-overlay', function() {

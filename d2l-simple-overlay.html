@@ -37,7 +37,6 @@
 			],
 			listeners: {
 				'transitionend': '_onTransitionEnd',
-				'image-selector-tile-image-selected': '_handleCloseSimpleOverlayEvent',
 				'd2l-simple-overlay-close-button-clicked': '_handleClose',
 				'iron-overlay-canceled': '_handleCancel'
 			},
@@ -71,11 +70,6 @@
 				this.close();
 				this.fire('d2l-simple-overlay-closed');
 				this.fire('recalculate-columns');
-			},
-			_handleCloseSimpleOverlayEvent: function(e) {
-				e.preventDefault();
-				e.stopPropagation();
-				this._handleClose();
 			},
 			_onTransitionEnd: function(e) {
 				if (e.target !== this) {

@@ -17,16 +17,15 @@
   "homepage": "https://github.com/Brightspace/simple-overlay",
   "private": true,
   "ignore": [
-    "**/.*",
+    "demo",
+    "test",
     ".editorconfig",
     ".eslintrc.json",
     ".gitignore",
     ".travis.yml",
     "package.json",
     "polymer.json",
-    "wct.conf.json",
-    "test",
-    "demo"
+    "wct.conf.json"
   ],
   "dependencies": {
     "iron-overlay-behavior": "^2.3.1",

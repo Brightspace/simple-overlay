@@ -122,7 +122,7 @@ Polymer-based web component for a simple overlay.  This overlay supports using d
 				document.body.appendChild(style);
 			},
 			get scrollRegion() {
-				return this.$$('.scrollable');
+				return Polymer.dom(this.root).querySelector('.scrollable');
 			},
 			_notifyDistributedChildren: function(eventName) {
 				Polymer.dom(this.$.mainSlot)

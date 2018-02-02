@@ -5,9 +5,14 @@
 <link rel="import" href="d2l-simple-overlay-close-button.html">
 <link rel="import" href="d2l-simple-overlay-styles.html">
 
-<!-- This overlay supports using different animations and transitions for desktop and mobile. -->
+<!--
+`d2l-simple-overlay`
+Polymer-based web component for a simple overlay.  This overlay supports using different animations and transitions for desktop and mobile.
+@demo demo/simple-overlay.html Simple Overlay
+-->
+
 <dom-module id="d2l-simple-overlay">
-	<template>
+	<template strip-whitespace>
 		<style include="d2l-simple-overlay-styles"></style>
 		<span role="dialog" aria-label$="[[titleName]]">
 			<div id="headerContainer">
@@ -117,7 +122,7 @@
 				document.body.appendChild(style);
 			},
 			get scrollRegion() {
-				return this.$$('.scrollable');
+				return Polymer.dom(this.root).querySelector('.scrollable');
 			},
 			_notifyDistributedChildren: function(eventName) {
 				Polymer.dom(this.$.mainSlot)

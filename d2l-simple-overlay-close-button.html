@@ -2,8 +2,14 @@
 <link rel="import" href="../d2l-icons/d2l-icons.html">
 <link rel="import" href="d2l-simple-overlay-close-button-styles.html">
 
+<!--
+`d2l-simple-overlay-close-button`
+Polymer-based web component for the simple overlay close button.
+@demo demo/simple-overlay-close-button.html Simple Overlay Close Button
+-->
+
 <dom-module id="d2l-simple-overlay-close-button">
-	<template>
+	<template strip-whitespace>
 		<style include="d2l-simple-overlay-close-button-styles"></style>
 		<button
 			aria-label$="[[closeText]]"
@@ -26,7 +32,7 @@
 			},
 
 			_onTap: function() {
-				this.dispatchEvent(new CustomEvent('d2l-simple-overlay-close-button-clicked', { bubbles: true }));
+				this.dispatchEvent(new CustomEvent('d2l-simple-overlay-close-button-clicked', { bubbles: true, composed: true }));
 			}
 		});
 	</script>

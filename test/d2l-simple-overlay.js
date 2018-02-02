@@ -1,5 +1,3 @@
-/* global describe, it, beforeEach, fixture, expect */
-
 'use strict';
 
 describe('d2l-simple-overlay', function() {
@@ -44,13 +42,12 @@ describe('d2l-simple-overlay', function() {
 	});
 
 	describe('slot behavior', function() {
+
 		it('should allow for custom content in the "header" slot', function() {
 			var item = document.createElement('div');
 			item.setAttribute('slot', 'header');
 			Polymer.dom(component).appendChild(item);
 			Polymer.dom.flush();
-
-			expect(component.$.headerContainer.querySelector('h2')).to.be.null;
 
 			var insertionPoint = Polymer.dom(item).getDestinationInsertionPoints()[0];
 			expect(Polymer.dom(insertionPoint).parentNode).to.equal(component.$.headerContainer);
@@ -75,5 +72,7 @@ describe('d2l-simple-overlay', function() {
 
 			component.open();
 		});
+
 	});
+
 });

@@ -43,7 +43,9 @@ Polymer-based web component for a simple overlay.  This overlay supports using d
 			listeners: {
 				'transitionend': '_onTransitionEnd',
 				'd2l-simple-overlay-close-button-clicked': '_handleClose',
-				'iron-overlay-canceled': '_handleCancel'
+				'iron-overlay-canceled': '_handleCancel',
+				'iron-overlay-opened': '_handleIronOpened',
+				'iron-overlay-closed': '_handleIronClosed'
 			},
 			properties: {
 				// Title for overlay
@@ -73,6 +75,11 @@ Polymer-based web component for a simple overlay.  This overlay supports using d
 			},
 			_handleClose: function() {
 				this.close();
+			},
+			_handleIronOpened: function() {
+				this.fire('d2l-simple-overlay-opened');
+			},
+			_handleIronClosed: function() {
 				this.fire('d2l-simple-overlay-closed');
 				this.fire('recalculate-columns');
 			},
@@ -132,6 +139,18 @@ Polymer-based web component for a simple overlay.  This overlay supports using d
 						);
 					}.bind(this));
 			}
+			/**
+			 * Fired after the overlay opens.
+			 * @event d2l-simple-overlay-opened
+			 */
+			/**
+ 			 * Fired after the overlay closes.
+ 			 * @event d2l-simple-overlay-closed
+ 			 */
+			/**
+ 			 * Fired when the overlay is cancelled, but before it is closed.
+ 			 * @event d2l-simple-overlay-cancelled
+ 			 */
 		});
 	</script>
 </dom-module>

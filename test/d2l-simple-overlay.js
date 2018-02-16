@@ -7,41 +7,79 @@ describe('d2l-simple-overlay', function() {
 		component = fixture('overlay-fixture');
 	});
 
-	it('should fire d2l-simple-overlay-closed event on closing', function(done) {
-		var handler = function() {
-			document.removeEventListener('d2l-simple-overlay-closed', handler);
-			done();
-		};
-		document.addEventListener('d2l-simple-overlay-closed', handler);
+	describe('d2l-simple-overlay-opened event', function() {
 
-		component._handleClose();
+		it('should fire d2l-simple-overlay-opened event when opened', function(done) {
+			component.addEventListener(
+				'd2l-simple-overlay-opened',
+				function handler() {
+					component.removeEventListener('d2l-simple-overlay-opened', handler);
+					done();
+				}
+			);
+			component.open();
+		});
+
+		it('should fire d2l-simple-overlay-opening event when opened', function(done) {
+			component.addEventListener(
+				'd2l-simple-overlay-opening',
+				function handler() {
+					component.removeEventListener('d2l-simple-overlay-opening', handler);
+					done();
+				}
+			);
+			component.open();
+		});
+
 	});
 
-	it('should fire recalculate-columns event on closing', function(done) {
-		var handler = function() {
-			document.removeEventListener('recalculate-columns', handler);
-			done();
-		};
-		document.addEventListener('recalculate-columns', handler);
+	describe('d2l-simple-overlay-closed event', function() {
 
-		component._handleClose();
-	});
+		beforeEach(function() {
+			component = fixture('overlay-fixture-opened');
+		});
 
-	it('should fire d2l-simple-overlay-opening event on opening', function(done) {
-		var handler = function() {
-			document.removeEventListener('d2l-simple-overlay-opening', handler);
-			done();
-		};
-		document.addEventListener('d2l-simple-overlay-opening', handler);
+		it('should fire d2l-simple-overlay-closed event when closed', function(done) {
+			component.addEventListener(
+				'd2l-simple-overlay-closed',
+				function handler() {
+					component.removeEventListener('d2l-simple-overlay-closed', handler);
+					done();
+				}
+			);
+			component.addEventListener(
+				'd2l-simple-overlay-opened',
+				function handleOpened() {
+					component.removeEventListener('d2l-simple-overlay-opened', handleOpened);
+					component.close();
+				}
+			);
+		});
 
-		component._renderOpened();
-	});
+		it('should fire recalculate-columns event when closed', function(done) {
+			component.addEventListener(
+				'recalculate-columns',
+				function handler() {
+					component.removeEventListener('recalculate-columns', handler);
+					done();
+				}
+			);
+			component.addEventListener(
+				'd2l-simple-overlay-opened',
+				function handleOpened() {
+					component.removeEventListener('d2l-simple-overlay-opened', handleOpened);
+					component.close();
+				}
+			);
+		});
 
-	it('should have a default header in the "header" slot', function() {
-		expect(component.$.headerContainer.querySelector('h2')).to.not.be.null;
 	});
 
 	describe('slot behavior', function() {
+
+		it('should have a default header in the "header" slot', function() {
+			expect(component.$.headerContainer.querySelector('h2')).to.not.be.null;
+		});
 
 		it('should allow for custom content in the "header" slot', function() {
 			var item = document.createElement('div');

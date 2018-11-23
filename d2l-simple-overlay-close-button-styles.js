@@ -1,9 +1,10 @@
-<link rel="import" href="../d2l-colors/d2l-colors.html">
-<link rel="import" href="../d2l-icons/d2l-icons.html">
-<link rel="import" href="../d2l-typography/d2l-typography-shared-styles.html">
+import '../d2l-colors/d2l-colors.js';
+import '../d2l-icons/d2l-icons.js';
+import '../d2l-typography/d2l-typography-shared-styles.js';
+const $_documentContainer = document.createElement('template');
 
-<dom-module id="d2l-simple-overlay-close-button-styles">
-	<template strip-whitespace>
+$_documentContainer.innerHTML = `<dom-module id="d2l-simple-overlay-close-button-styles">
+	<template strip-whitespace="">
 		<style>
 
 		.close-button {
@@ -41,4 +42,6 @@
 		}
 		</style>
 	</template>
-</dom-module>
+</dom-module>`;
+
+document.head.appendChild($_documentContainer.content);

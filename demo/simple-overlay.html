@@ -27,25 +27,32 @@
 			<h3>Simple Overlay</h3>
 			<demo-snippet>
 				<template>
-					<button onclick="openOverlay()">Open Overlay!</button>
+					<button id="overlayButton">Open Overlay!</button>
 
 					 <d2l-simple-overlay id="overlay" title-name="Simple Overlay">
 						<p>This is the content of the simple overlay.
 						You can put any content in here.
 						Click the X to close it.</p>
-						<img src="http://lorempixel.com/400/300/"/>
+						<img src="https://picsum.photos/400/300">
 					</d2l-simple-overlay>
 				</template>
 			</demo-snippet>
 
 		</div>
 		<script>
-			function openOverlay() {
-				var overlay = document.getElementById('overlay');
-				overlay.open();
-			}
-			document.body.addEventListener('d2l-simple-overlay-close-button-clicked', function(e) {
-				console.log('d2l-simple-overlay-close-button-clicked', e);
+			document.addEventListener('WebComponentsReady', function() {
+				function openOverlay() {
+					var overlay = document.getElementById('overlay');
+					overlay.open();
+				}
+
+				window.requestAnimationFrame(function() {
+					var overlayButton = document.getElementById('overlayButton');
+					overlayButton.addEventListener('click', openOverlay);
+					document.body.addEventListener('d2l-simple-overlay-close-button-clicked', function(e) {
+						console.log('d2l-simple-overlay-close-button-clicked', e);
+					});
+				});
 			});
 		</script>
 	</body>

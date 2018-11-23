@@ -127,9 +127,11 @@ Polymer({
 		document.body.style.overflow = 'hidden';
 	},
 	_updateBackdropStyle: function() {
-		var style = document.createElement('style', 'custom-style');
+		var customStyle = document.createElement('custom-style');
+		var style = document.createElement('style');
 		style.innerHTML = 'iron-overlay-backdrop { --iron-overlay-backdrop-opacity: 0.0; }';
-		document.body.appendChild(style);
+		customStyle.appendChild(style);
+		document.body.appendChild(customStyle);
 	},
 	get scrollRegion() {
 		return dom(this.root).querySelector('.scrollable');

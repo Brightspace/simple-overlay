@@ -85,6 +85,7 @@ window.requestAnimationFrame(function() {
 	var overlayButton = document.getElementById('overlayButton');
 	overlayButton.addEventListener('click', openOverlay);
 	document.body.addEventListener('d2l-simple-overlay-close-button-clicked', function(e) {
+		// eslint-disable-next-line no-console
 		console.log('d2l-simple-overlay-close-button-clicked', e);
 	});
 });

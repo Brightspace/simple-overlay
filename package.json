@@ -1,5 +1,5 @@
 {
-  "name": "simple-overlay",
+  "name": "d2l-simple-overlay",
   "description": "Polymer-based web component for a D2L simple overlay",
   "private": true,
   "scripts": {

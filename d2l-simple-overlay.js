@@ -8,15 +8,15 @@ Polymer-based web component for a simple overlay.  This overlay supports using d
   from HTML and may be out of place here. Review them and
   then delete this comment!
 */
-import '../@polymer/polymer/polymer-legacy.js';
+import '@polymer/polymer/polymer-legacy.js';
 
-import { IronOverlayBehavior } from '../@polymer/iron-overlay-behavior/iron-overlay-behavior.js';
-import '../d2l-icons/d2l-icons.js';
-import '../d2l-polymer-behaviors/d2l-dom.js';
+import { IronOverlayBehavior } from '@polymer/iron-overlay-behavior/iron-overlay-behavior.js';
+import 'd2l-icons/d2l-icons.js';
+import 'd2l-polymer-behaviors/d2l-dom.js';
 import './d2l-simple-overlay-close-button.js';
 import './d2l-simple-overlay-styles.js';
-import { Polymer } from '../@polymer/polymer/lib/legacy/polymer-fn.js';
-import { dom } from '../@polymer/polymer/lib/legacy/polymer.dom.js';
+import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
+import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-simple-overlay">

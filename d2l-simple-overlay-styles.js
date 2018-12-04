@@ -1,5 +1,5 @@
-import '../d2l-colors/d2l-colors.js';
-import '../d2l-typography/d2l-typography-shared-styles.js';
+import 'd2l-colors/d2l-colors.js';
+import 'd2l-typography/d2l-typography-shared-styles.js';
 const $_documentContainer = document.createElement('template');
 
 $_documentContainer.innerHTML = `<dom-module id="d2l-simple-overlay-styles">

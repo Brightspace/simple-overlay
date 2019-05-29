@@ -7,6 +7,7 @@ Polymer-based web component for the simple overlay close button.
 import '@polymer/polymer/polymer-legacy.js';
 
 import 'd2l-button/d2l-button-icon.js';
+import 'd2l-icons/tier1-icons.js';
 import { Polymer } from '@polymer/polymer/lib/legacy/polymer-fn.js';
 const $_documentContainer = document.createElement('template');
 

@@ -11,7 +11,6 @@ Polymer-based web component for a simple overlay.  This overlay supports using d
 import '@polymer/polymer/polymer-legacy.js';
 
 import { IronOverlayBehavior } from '@polymer/iron-overlay-behavior/iron-overlay-behavior.js';
-import 'd2l-icons/d2l-icons.js';
 import 'd2l-polymer-behaviors/d2l-dom.js';
 import './d2l-simple-overlay-close-button.js';
 import './d2l-simple-overlay-styles.js';

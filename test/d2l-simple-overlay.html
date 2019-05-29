@@ -43,6 +43,19 @@ describe('d2l-simple-overlay', function() {
 		component = fixture('overlay-fixture');
 	});
 
+	/* iron-overlay-behavior has a bug where detached cannot be called multiple times, and this is happening on IE11 and Edge:
+	 * https://github.com/PolymerElements/iron-overlay-behavior/issues/269#issuecomment-392465251
+	 * This test confirms that our fix still works.
+	 */
+	describe('iron-overlay-behavior', function() {
+
+		it('should be able to be detached multiple times without throwing', function() {
+			component.detached();
+			component.detached();
+		});
+
+	});
+
 	describe('d2l-simple-overlay-opened event', function() {
 
 		it('should fire d2l-simple-overlay-opened event when opened', function(done) {

@@ -76,6 +76,13 @@ Polymer({
 			subtree: true
 		});
 	},
+	detached: function() {
+		if (this._observer === null) {
+			this._observer = {
+				disconnect: function() {}
+			};
+		}
+	},
 	get _focusableNodes() {
 		return [D2L.Dom.Focus.getFirstFocusableDescendant(this), D2L.Dom.Focus.getLastFocusableDescendant(this)];
 	},

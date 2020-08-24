@@ -34,7 +34,7 @@ $_documentContainer.innerHTML = `<dom-module id="d2l-simple-overlay-styles">
 		}
 
 		.scrollable {
-			height: calc(100vh - 150px);
+			height: var(--d2l-scrollable-height, calc(100vh - 150px));
 			max-height: calc(100vh - 150px);
 			overflow-y: auto;
 			-webkit-overflow-scrolling: touch;
